@@ -1,1 +1,30 @@
-<app-default-login-layout>
+<app-default-login-layout 
+    title = "Faça login em sua conta"
+    primaryBtnText = "Login"
+    secondaryBtnText = "Sign Up"
+    (submit)="submit()"
+    (navigate)="navigate()"
+    >
+    <form [formGroup] = "loginForm">
+        <app-primary-input
+            formControlName="email"
+            inputName="email"
+            type="email"
+            label="Email"
+            placeholder="exemplo@gmail.com"
+        >
+            <img src="/assets/png/email-icon.svg">
+        </app-primary-input>
+
+        <app-primary-input
+            formControlName="password"
+            inputName="password"
+            type="password"
+            label="Senha"
+        >
+            <img src="/assets/png/password-icon.svg">
+        </app-primary-input>
+        <span>Esqueceu a senha?</span>
+    </form>
+</app-default-login-layout>
+
