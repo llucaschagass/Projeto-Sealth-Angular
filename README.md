@@ -1,27 +1,38 @@
-# Sealth
+# SEALTH - Frontend Angular
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.1.
+Bem-vindo ao repositório do frontend do projeto SEALTH (Sistema Eficaz de Administração Logística e Tecnologia Hospitalar), desenvolvido com Angular 17. Este repositório contém o código-fonte do frontend do SEALTH, uma plataforma inovadora que visa revolucionar a gestão hospitalar, proporcionando uma experiência integrada e centrada no paciente.
 
-## Development server
+## Visão Geral
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+O frontend do SEALTH é desenvolvido com o objetivo de fornecer aos pacientes um portal intuitivo e acessível para acessar e gerenciar suas informações de saúde. Com uma interface de usuário amigável e recursos avançados, o frontend do SEALTH permite aos pacientes agendar consultas, visualizar suas prescrições médicas, receber lembretes de medicamentos e muito mais.
 
-## Code scaffolding
+## Tecnologias Utilizadas
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+O frontend do SEALTH é construído utilizando as seguintes tecnologias:
 
-## Build
+- Angular 17
+- HTML5
+- SCSS
+- Typescript
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Instalação
 
-## Running unit tests
+Para executar o frontend do SEALTH localmente, siga estas etapas:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+1. Clone este repositório para o seu ambiente de desenvolvimento
+2. Navegue até o diretório do projeto
+3. Instale as dependências do projeto
+4. Inicie o servidor de desenvolvimento
 
-## Running end-to-end tests
+## Contribuições
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Contribuições são bem-vindas! Se você encontrar algum problema ou tiver sugestões de melhorias, sinta-se à vontade para abrir uma issue ou enviar um pull request.
 
-## Further help
+## Equipe
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- [Lucas Chagas](https://github.com/llucaschagass)
+
+## Licença
+
+Este projeto é licenciado sob a MIT License.
+
