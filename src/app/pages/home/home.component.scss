@@ -1,0 +1,81 @@
+@import "../../../styles/variables.scss";
+
+.logo {
+    position: absolute;
+    width: 500px; 
+    height: auto;
+    left: 50px;
+}
+
+.home-ilustration {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 680px; 
+    height: auto;
+}
+
+.container {
+    display: flex;
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; 
+    gap: 20px; 
+    padding: 10px; 
+}
+
+.row {
+    display: flex;
+    gap: 40px; 
+}
+
+.module {
+    position: relative; /* Para permitir posicionamento absoluto dos ícones */
+    width: 330px; 
+    height: 350px; 
+    background-color: $primary-color; 
+    border-radius: 30px; 
+    display: flex;
+    flex-direction: column; 
+    justify-content: flex-end; /* Alinha o texto ao final da div */
+    align-items: flex-start; /* Alinha o texto à esquerda */
+    font-size: 26px; 
+    color: white; 
+    font-family: "Poppins", sans-serif; 
+    text-align: left; /* Alinha o texto à esquerda */
+    padding: 20px; /* Adiciona um padding interno */
+    font-weight: bold;
+}
+
+.module .icon {
+    width: auto;
+    height: 60px;
+    margin-bottom: 5px; /* Espaçamento entre o ícone e as linhas de texto */
+}
+
+.module .open-icon {
+    width: 35px; 
+    height: auto;
+    position: absolute;
+    top: 20px; 
+    right: 20px; 
+}
+
+.overlay {
+    position: fixed;
+    top: 20px;
+    right: 240px; 
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.overlay img {
+    width: 180px; 
+    height: auto;
+    margin-bottom: 5px;
+}
+
+.overlay h1 {
+    font-size: 36px;
+}
