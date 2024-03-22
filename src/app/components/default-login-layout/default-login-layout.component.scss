@@ -18,6 +18,11 @@ main {
         gap: 8px;
         flex-grow: 1;
         background-color: $color-bg;
+
+        img{
+            width: 1200px; 
+            height: auto;
+        }
     }
 
     .form-section {
