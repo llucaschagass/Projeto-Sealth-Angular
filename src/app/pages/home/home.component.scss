@@ -1,81 +1,143 @@
 @import "../../../styles/variables.scss";
 
+/* Estilos para a logo */
 .logo {
     position: absolute;
-    width: 500px; 
+    width: 500px;
     height: auto;
-    left: 50px;
+    left: 100px;
+    margin-top: 70px;
 }
 
+/* Estilos para a ilustração da home */
 .home-ilustration {
     position: fixed;
     bottom: 0;
     right: 0;
-    width: 680px; 
+    width: 680px;
     height: auto;
 }
 
+/* Estilos para o container principal */
 .container {
     display: flex;
-    flex-direction: column; 
-    justify-content: center; 
-    align-items: center; 
-    gap: 20px; 
-    padding: 10px; 
+    flex-direction: row; 
+    align-items: center;
+    gap: 40px;
+    padding: 70px;
+    padding-left: 200px;
 }
 
+/* Estilos para as linhas de módulos */
 .row {
     display: flex;
-    gap: 40px; 
+    flex-direction: column;
+    gap: 20px;
 }
 
+/* Estilos para os módulos */
 .module {
-    position: relative; /* Para permitir posicionamento absoluto dos ícones */
-    width: 330px; 
-    height: 350px; 
-    background-color: $primary-color; 
-    border-radius: 30px; 
+    position: relative;
+    width: 330px;
+    height: 350px;
+    background-color: $primary-color;
+    border-radius: 30px;
     display: flex;
-    flex-direction: column; 
-    justify-content: flex-end; /* Alinha o texto ao final da div */
-    align-items: flex-start; /* Alinha o texto à esquerda */
-    font-size: 26px; 
-    color: white; 
-    font-family: "Poppins", sans-serif; 
-    text-align: left; /* Alinha o texto à esquerda */
-    padding: 20px; /* Adiciona um padding interno */
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    font-size: 26px;
+    color: white;
+    font-family: "Poppins", sans-serif;
+    text-align: left;
+    padding: 20px;
     font-weight: bold;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+
+    &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 6px 0 rgba(0, 0, 0, 0.5);
+    }
 }
 
+/* Estilos para os ícones dentro dos módulos */
 .module .icon {
     width: auto;
     height: 60px;
-    margin-bottom: 5px; /* Espaçamento entre o ícone e as linhas de texto */
+    margin-bottom: 5px;
 }
 
+/* Estilos para os ícones de abertura dentro dos módulos */
 .module .open-icon {
-    width: 35px; 
+    width: 35px;
     height: auto;
     position: absolute;
-    top: 20px; 
-    right: 20px; 
+    top: 20px;
+    right: 20px;
 }
 
+/* Estilos para a overlay */
 .overlay {
     position: fixed;
     top: 20px;
-    right: 240px; 
+    right: 240px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
 }
 
+/* Estilos para as imagens dentro da overlay */
 .overlay img {
-    width: 180px; 
+    width: 180px;
     height: auto;
     margin-bottom: 5px;
 }
 
+/* Estilos para o texto dentro da overlay */
 .overlay h1 {
     font-size: 36px;
+}
+
+.module-extra {
+    display: hidden; 
+    width: 330px;
+    height: 250px; 
+}
+
+.module-big {
+    position: relative;
+    width: 330px; 
+    height: 450px; 
+    background-color: $primary-color;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    font-size: 26px;
+    color: white;
+    font-family: "Poppins", sans-serif;
+    text-align: left;
+    padding: 20px;
+    font-weight: bold;
+
+    &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 6px 0 rgba(0, 0, 0, 0.5);
+    }
+}
+
+.module-big .icon {
+    width: auto;
+    height: 55px;
+    margin-bottom: 5px;
+}
+
+.module-big .open-icon {
+    width: 35px;
+    height: auto;
+    position: absolute;
+    top: 20px;
+    right: 20px;
 }
