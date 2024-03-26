@@ -1,0 +1,146 @@
+@import "../../../styles/variables.scss";
+
+.config-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    max-width: auto;
+}
+
+.config-header .logo,
+.config-header .user-icon {
+    width: 400px; /* Tamanho dos ícones */
+    height: auto;
+}
+
+.config-header .user-icon {
+    width: 180px; /* Tamanho do ícone de usuário */
+    height: auto;
+    margin-bottom: 40px; /* Espaçamento inferior */
+}
+
+.config-header .title-container {
+    position: absolute;
+    left: 50%; /* Centraliza horizontalmente */
+    transform: translateX(-50%); /* Centraliza horizontalmente */
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $primary-color; /* Cor de fundo */
+    border-radius: 30px; /* Borda arredondada */
+    padding: 10px; /* Espaçamento interno */
+    max-width: 700px; /* Largura máxima */
+}
+
+.config-header .title-container h1 {
+    color: white; /* Cor do texto */
+    margin: 0; /* Remove margens */
+}
+
+/* Estilos para a grade de balões */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    border-radius: 20px;
+    padding: 30px;
+}
+
+.grid-item {
+    display: flex;
+    justify-content: center;
+}
+
+.config-form {
+    padding: 20px;
+}
+
+.form-group {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; /* Posiciona os itens à direita */
+    margin-bottom: 20px;
+}
+
+.label-wrapper {
+    width: 150px; 
+    background-color: $primary-color;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center; /* Centraliza o texto */
+}
+
+label {
+    display: block;
+    margin: 0;
+    color: white;
+}
+
+.input-wrapper {
+    margin-left: 10px; 
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="password"] {
+    width: 500px; /* Defina a largura desejada */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-right: 120px;
+}
+
+.config-form button {
+    background-color: $primary-color;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: darken($primary-color, 10%);
+}
+
+.button-submit {
+    font-size: 20px;
+    margin-right: 625px;
+}
+
+.image-container {
+    position: fixed; 
+    bottom: 0; 
+    right: 400px;
+    max-width: 200px; 
+}
+
+.right-image {
+    width: 450px; 
+    height: auto; 
+}
+
+.about-us {
+    position: fixed; 
+    top: 240px; 
+    left: 150px;
+    width: 800px; 
+    font-family: Arial, sans-serif;
+    background-color: white;
+    font-size: 30px;
+    padding: 10px; 
+    text-align: center; 
+    z-index: 1000; 
+}
+
+.about-us h1 {
+    font-size: 50px;
+    margin-bottom: 20px;
+    color: $primary-color;
+    font-family: "Poppins"
+}
+
