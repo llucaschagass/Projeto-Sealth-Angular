@@ -3,6 +3,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { HomeComponent } from './pages/home/home.component';
 import { InfoComponent } from './pages/info/info.component';
+import { ConfigComponent } from './pages/config/config.component';
 
 export const routes: Routes = [
     {
@@ -20,5 +21,9 @@ export const routes: Routes = [
     {
         path: "info",
         component: InfoComponent
+    },
+    {
+        path: "config",
+        component: ConfigComponent
     }
 ];

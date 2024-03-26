@@ -14,4 +14,7 @@ export class HomeComponent {
   openInfoComponent() {
     this.router.navigate(['/info']);
   }
+  openConfigComponent(){
+    this.router.navigate(['/config']);
+  }
 }
