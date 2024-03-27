@@ -6,6 +6,7 @@ import { InfoComponent } from './pages/info/info.component';
 import { ConfigComponent } from './pages/config/config.component';
 import { HealthComponent } from './pages/health/health.component';
 import { AppointmentsComponent } from './pages/appointments/appointments.component';
+import { MedicinesComponent } from './pages/medicines/medicines.component';
 
 export const routes: Routes = [
     {
@@ -35,5 +36,9 @@ export const routes: Routes = [
     {
         path: "appointment",
         component: AppointmentsComponent
+    },
+    {
+        path: "medicines",
+        component: MedicinesComponent
     }
 ];

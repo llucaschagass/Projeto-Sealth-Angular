@@ -1,0 +1,40 @@
+@import "../../../styles/variables.scss"; 
+
+.medicines-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    max-width: auto;
+}
+
+.medicines-header .logo,
+.medicines-header .user-icon {
+    width: 400px; 
+    height: auto;
+}
+
+.medicines-header .user-icon {
+    width: 180px; 
+    height: auto;
+    margin-bottom: 40px; 
+}
+
+.medicines-header .title-container {
+    position: absolute;
+    left: 50%; 
+    transform: translateX(-50%);
+    flex: 1;
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    background-color: $primary-color; 
+    border-radius: 30px; 
+    padding: 10px; 
+    max-width: 700px; 
+}
+
+.medicines-header .title-container h1 {
+    color: white; 
+    margin: 0; 
+}
