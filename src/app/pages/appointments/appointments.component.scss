@@ -1,0 +1,40 @@
+@import "../../../styles/variables.scss"; 
+
+.appointments-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    max-width: auto;
+}
+
+.appointments-header .logo,
+.appointments-header .user-icon {
+    width: 400px;
+    height: auto;
+}
+
+.appointments-header .user-icon {
+    width: 180px; 
+    height: auto;
+    margin-bottom: 40px; 
+}
+
+.appointments-header .title-container {
+    position: absolute;
+    left: 50%; 
+    transform: translateX(-50%); 
+    flex: 1;
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    background-color: $primary-color; 
+    border-radius: 30px;
+    padding: 10px;
+    max-width: 700px; 
+}
+
+.appointments-header .title-container h1 {
+    color: white;
+    margin: 0;
+}

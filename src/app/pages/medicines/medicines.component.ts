@@ -2,17 +2,16 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-info',
+  selector: 'app-medicines',
   standalone: true,
   imports: [],
-  templateUrl: './info.component.html',
-  styleUrl: './info.component.scss'
+  templateUrl: './medicines.component.html',
+  styleUrl: './medicines.component.scss'
 })
-export class InfoComponent {
+export class MedicinesComponent {
   constructor(private router: Router) {}
   
   redirectToHome(): void {
     this.router.navigate(['/home']);
   }
-
 }
