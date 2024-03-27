@@ -4,6 +4,7 @@ import { SignupComponent } from './pages/signup/signup.component';
 import { HomeComponent } from './pages/home/home.component';
 import { InfoComponent } from './pages/info/info.component';
 import { ConfigComponent } from './pages/config/config.component';
+import { HealthComponent } from './pages/health/health.component';
 
 export const routes: Routes = [
     {
@@ -25,5 +26,9 @@ export const routes: Routes = [
     {
         path: "config",
         component: ConfigComponent
+    },
+    {
+        path: "health",
+        component: HealthComponent
     }
 ];

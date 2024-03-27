@@ -1,0 +1,173 @@
+@import "../../../styles/variables.scss";
+
+.health-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    max-width: auto;
+}
+
+.health-header .logo,
+.health-header .user-icon {
+    width: 400px; 
+    height: auto;
+}
+
+.health-header .user-icon {
+    width: 180px; 
+    height: auto;
+    margin-bottom: 40px; 
+}
+
+.health-header .title-container {
+    position: absolute;
+    left: 50%; 
+    transform: translateX(-50%); 
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $primary-color; 
+    border-radius: 30px; 
+    padding: 10px; 
+    max-width: 700px; 
+}
+
+.health-header .title-container h1 {
+    color: white; 
+    margin: 0; 
+}
+
+.modules-container {
+    display: flex;
+}
+
+.health-module {
+    position: relative;
+    width: 370px;
+    height: 350px;
+    background-color: $primary-color;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    font-size: 26px;
+    color: white;
+    font-family: "Poppins", sans-serif;
+    text-align: left;
+    padding: 20px;
+    font-weight: bold;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    margin-left: 150px;
+
+    &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 6px 0 rgba(0, 0, 0, 0.5);
+    }
+}
+
+.module-title {
+    color: white;
+    margin-bottom: 10px; 
+    align-self: flex-start;
+}
+
+.info-container {
+    margin-top: 10px;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.label-wrapper {
+    width: 100px;
+}
+
+.info-text {
+    color: white;
+    padding: 8px;
+    border-radius: 5px;
+}
+
+//results module
+.results-module {
+    position: relative;
+    width: 500px;
+    height: auto; 
+    background-color: $primary-color;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    font-size: 26px;
+    color: white;
+    font-family: "Poppins", sans-serif;
+    text-align: left;
+    padding: 20px;
+    font-weight: bold;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    margin-left: 20px; 
+
+    &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 6px 0 rgba(0, 0, 0, 0.5);
+    }
+}
+
+.results-module .module-title {
+    color: white;
+}
+
+.results-module .info-container {
+    margin-top: 10px;
+}
+
+.results-module .info-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.results-module .label-wrapper {
+    width: 300px; 
+}
+
+.results-module .info-text {
+    color: white;
+    padding: 8px;
+    border-radius: 5px;
+}
+
+.health-evaluation {
+    position: relative;
+    width: 370px;
+    height: 350px;
+    background-color: $primary-color;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    font-size: 26px;
+    color: white;
+    font-family: "Poppins", sans-serif;
+    text-align: left;
+    padding: 20px;
+    font-weight: bold;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    margin-left: 20px; 
+    
+    &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 6px 0 rgba(0, 0, 0, 0.5);
+    }
+}

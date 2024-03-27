@@ -1,0 +1,81 @@
+<header class="health-header">
+    <img src="/assets/png/logo-big.png" alt="" class="logo" (click)="redirectToHome()">
+    <div class="title-container">
+        <h1 class="title">Informações de Saúde</h1>
+    </div>
+    <img src="/assets/png/user-icon.png" alt="User Icon" class="user-icon">
+</header>
+
+<div class="modules-container">
+    <div class="health-module">
+        <h2 class="module-title">Informações</h2>
+        <div class="info-container">
+            <div class="info-item">
+                <div class="label-wrapper">
+                    <label for="weight">Peso:</label>
+                </div>
+                <div class="info-text">{{ userPeso }} kg</div>
+            </div>
+            <div class="info-item">
+                <div class="label-wrapper">
+                    <label for="height">Altura:</label>
+                </div>
+                <div class="info-text">{{ userAltura }} m</div>
+            </div>
+            <div class="info-item">
+                <div class="label-wrapper">
+                    <label for="height">Sexo:</label>
+                </div>
+                <div class="info-text">{{ userSexo }}</div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="results-module">
+        <h2 class="module-title">Resultados</h2>
+        <div class="info-container">
+            <div class="info-item">
+                <div class="label-wrapper">
+                    <label for="imc">Seu IMC:</label>
+                </div>
+                <div class="info-text">{{ userImc.toFixed(2) }}</div>
+            </div>
+            <div class="info-item">
+                <div class="label-wrapper">
+                    <label for="agua">Água Recomendada:</label>
+                </div>
+                <div class="info-text">{{ aguaRecomendada }} L</div>
+            </div>
+            <div class="info-item">
+                <div class="label-wrapper">
+                    <label for="calorias">Calorias Diárias:</label>
+                </div>
+                <div class="info-text">{{ caloriasDiarias.toFixed(2) }} kcal</div>
+            </div>
+            <div class="info-item">
+                <div class="label-wrapper">
+                    <label for="pesoIdeal">Peso Ideal:</label>
+                </div>
+                <div class="info-text">{{ pesoIdeal }} kg</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="health-evaluation">
+        <h2 class="module-title">Avaliação Final</h2>
+        <div class="info-container">
+            <div class="info-item">
+                <div class="label-wrapper">
+                    <label for="imc">IMC:</label>
+                </div>
+                <div class="info-text">{{ userImcEvaluation }}</div>
+            </div>
+            <div class="info-item">
+                <div class="label-wrapper">
+                    <label for="weight-status">Estado do Peso:</label>
+                </div>
+                <div class="info-text">{{ userWeightStatus }}</div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -17,4 +17,7 @@ export class HomeComponent {
   openConfigComponent(){
     this.router.navigate(['/config']);
   }
+  openHealthComponent(){
+    this.router.navigate(['/health']);
+  }
 }
