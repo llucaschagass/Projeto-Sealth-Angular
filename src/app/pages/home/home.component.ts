@@ -20,4 +20,7 @@ export class HomeComponent {
   openHealthComponent(){
     this.router.navigate(['/health']);
   }
+  openAppointmentsComponent(){
+    this.router.navigate(['/appointment']);
+  }
 }
