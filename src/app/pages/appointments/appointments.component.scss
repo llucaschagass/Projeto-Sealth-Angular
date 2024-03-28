@@ -38,3 +38,110 @@
     color: white;
     margin: 0;
 }
+
+.main-container {
+    display: flex;
+}
+
+.appointments-container,
+.calendar-container {
+    flex: 1; 
+    margin-right: 20px; 
+}
+
+.appointments-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza horizontalmente */
+}
+
+.appointments-module {
+    position: relative;
+    width: 700px;
+    height: 450px;
+    background-color: $primary-color;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    font-size: 26px;
+    color: white;
+    font-family: "Poppins", sans-serif;
+    padding: 20px;
+    font-weight: bold;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    margin-left: 150px;
+    margin-bottom: 20px;
+
+    &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 6px 0 rgba(0, 0, 0, 0.5);
+    }
+}
+
+.module-title {
+    color: white;
+    margin-bottom: 10px;
+    align-self: center;
+    margin-top: 10px;
+}
+
+.info-container .info-extra {
+    margin-bottom: 15px;
+    margin-top: 30px;
+    align-self: center; 
+}
+
+.info-container .important-info {
+    margin-bottom: 0;
+    margin-top: 0;
+    font-size: 20px;
+}
+
+.buttons-container {
+    display: flex;
+    margin-left: 150px;
+}
+
+.button {
+    background-color: $primary-color;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 20px;
+    margin: 0 10px;
+    cursor: pointer;
+    font-family: "Poppins", sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+    transition: background-color 0.3s ease;
+    width: 200px;
+}
+
+.button:hover {
+    background-color: darken($primary-color, 10%);
+}
+
+.calendar-container {
+    position: relative; 
+    width: 600px; /* Defina a largura desejada para o container do calendário */
+    height: 600px; /* Defina a altura desejada para o container do calendário */
+  }
+  
+  .calendar {
+    /* Estilos para o container do calendário */
+    width: 100%;
+    height: 100%;
+    background-color: #ffffff; /* Cor de fundo do calendário */
+    border-radius: 10px; /* Bordas arredondadas */
+    /* Adicione outros estilos desejados para o calendário */
+  }
+  
+  .calendar-image {
+    position: absolute; 
+    margin-right: 150px;
+    bottom: 30px;
+    right: 0;
+    width: 650px; 
+    height: auto; 
+  }
