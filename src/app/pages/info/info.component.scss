@@ -58,6 +58,11 @@
   border-radius: 15px;
   padding: 15px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 6px 0 rgba(0, 0, 0, 0.5);
+  }
 }
 
 .balloon-arrow {
@@ -102,19 +107,28 @@
   text-decoration: underline;
 }
 
+.container {
+  position: relative; 
+}
+
+.left-image, .right-image {
+  position: absolute; 
+  bottom: 0; 
+}
+
 .left-image {
     position: absolute;
-    left: 400px;
+    right: 550px;
     bottom: 0;
-    width: 240px; 
+    width: 400px; 
     height: auto; 
   }
   
   .right-image {
     position: absolute;
-    right: 380px;
+    right: 100px;
     bottom: 0;
-    width: 240px; 
+    width: 400px; 
     height: auto; 
   }
 
