@@ -7,6 +7,7 @@ import { ConfigComponent } from './pages/config/config.component';
 import { HealthComponent } from './pages/health/health.component';
 import { AppointmentsComponent } from './pages/appointments/appointments.component';
 import { MedicinesComponent } from './pages/medicines/medicines.component';
+import { AuthGuard } from './services/auth-guard.service';
 
 export const routes: Routes = [
     {
@@ -19,7 +20,8 @@ export const routes: Routes = [
     },
     {
         path: "home",
-        component: HomeComponent
+        component: HomeComponent,
+        canActivate:[AuthGuard]
     },
     {
         path: "info",
