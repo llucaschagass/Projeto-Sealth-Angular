@@ -25,22 +25,27 @@ export const routes: Routes = [
     },
     {
         path: "info",
-        component: InfoComponent
+        component: InfoComponent,
+        canActivate:[AuthGuard]
     },
     {
         path: "config",
-        component: ConfigComponent
+        component: ConfigComponent,
+        canActivate:[AuthGuard]
     },
     {
         path: "health",
-        component: HealthComponent
+        component: HealthComponent,
+        canActivate:[AuthGuard]
     },
     {
         path: "appointment",
-        component: AppointmentsComponent
+        component: AppointmentsComponent,
+        canActivate:[AuthGuard]
     },
     {
         path: "medicines",
-        component: MedicinesComponent
+        component: MedicinesComponent,
+        canActivate:[AuthGuard]
     }
 ];
