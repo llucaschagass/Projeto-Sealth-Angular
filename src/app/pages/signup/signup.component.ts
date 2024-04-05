@@ -5,6 +5,7 @@ import { PrimaryInputComponent } from '../../components/primary-input/primary-in
 import { Router } from '@angular/router';
 import { LoginService } from '../../services/login.service';
 import { ToastrService } from 'ngx-toastr';
+import Swal from 'sweetalert2';
 
 interface SignupForm {
   name: FormControl,
@@ -43,9 +44,25 @@ export class SignupComponent {
   }
 
   submit(){
-    this.loginService.login(this.signupForm.value.email, this.signupForm.value.password).subscribe({
-      next: () => this.toastService.success("Login feito com sucesso!"),
-      error: () => this.toastService.error("Erro inesperado! Tente novamente mais tarde")
+    this.loginService.signup(this.signupForm.value.name,this.signupForm.value.email, this.signupForm.value.password).subscribe({
+      next: () => {
+        Swal.fire({
+            title: 'Sucesso!',
+            text: 'Usuário criado com sucesso!',
+            icon: 'success',
+            confirmButtonColor: '#046B46',
+            confirmButtonText: 'OK'
+        });
+    },
+    error: () => {
+        Swal.fire({
+            title: 'Erro!',
+            text: 'Erro inesperado! Tente novamente mais tarde.',
+            icon: 'error',
+            confirmButtonColor: '#046B46',
+            confirmButtonText: 'OK'
+        });
+    }
       
     })
   }

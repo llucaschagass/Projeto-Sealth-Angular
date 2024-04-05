@@ -41,12 +41,14 @@
 
 .modules-container {
     display: flex;
+    justify-content:  space-around;
+    width: 100%;
 }
 
 .health-module {
     position: relative;
     width: 370px;
-    height: 350px;
+    height: 300px;
     background-color: $primary-color;
     border-radius: 30px;
     display: flex;
@@ -61,41 +63,13 @@
     font-weight: bold;
     transition: transform 0.3s ease;
     cursor: pointer;
-    margin-left: 150px;
+    
 
     &:hover {
         transform: translateY(-5px);
         box-shadow: 0 6px 6px 0 rgba(0, 0, 0, 0.5);
     }
 }
-
-.module-title {
-    color: white;
-    margin-bottom: 10px; 
-    align-self: flex-start;
-}
-
-.info-container {
-    margin-top: 10px;
-}
-
-.info-item {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
-}
-
-.label-wrapper {
-    width: 100px;
-}
-
-.info-text {
-    color: white;
-    padding: 8px;
-    border-radius: 5px;
-}
-
-//results module
 .results-module {
     position: relative;
     width: 500px;
@@ -114,13 +88,52 @@
     font-weight: bold;
     transition: transform 0.3s ease;
     cursor: pointer;
-    margin-left: 20px; 
+   
+   
 
     &:hover {
         transform: translateY(-5px);
         box-shadow: 0 6px 6px 0 rgba(0, 0, 0, 0.5);
     }
 }
+
+
+
+.module-title {
+    color: white;
+    display: flex;
+    align-items: center;
+    align-self: center;
+    justify-content: center;
+    
+    
+}
+
+.info-container {
+    margin-top: 10px;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.label-wrapper {
+    width: 100px;
+}
+.label-wrapper-final {
+    width: 230px;
+}
+
+.info-text {
+    color: white;
+    padding: 8px;
+    border-radius: 5px;
+}
+
+//results module
+
 
 .results-module .module-title {
     color: white;
@@ -148,8 +161,8 @@
 
 .health-evaluation {
     position: relative;
-    width: 370px;
-    height: 350px;
+    width: 450px;
+    height: 250px;
     background-color: $primary-color;
     border-radius: 30px;
     display: flex;
@@ -164,10 +177,19 @@
     font-weight: bold;
     transition: transform 0.3s ease;
     cursor: pointer;
-    margin-left: 20px; 
+    
     
     &:hover {
         transform: translateY(-5px);
         box-shadow: 0 6px 6px 0 rgba(0, 0, 0, 0.5);
     }
+}
+
+.image-corner {
+    position: fixed;
+    bottom: 0;
+    right: 90px;
+    width: 360px; 
+    height: auto; 
+    
 }

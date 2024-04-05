@@ -5,6 +5,7 @@ import { PrimaryInputComponent } from '../../components/primary-input/primary-in
 import { Router } from '@angular/router';
 import { LoginService } from '../../services/login.service';
 import { ToastrService } from 'ngx-toastr';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -35,8 +36,17 @@ export class LoginComponent {
 
   submit(){
     this.loginService.login(this.loginForm.value.email, this.loginForm.value.password).subscribe({
-      next: () => this.toastService.success("Login feito com sucesso!"),
-      error: () => this.toastService.error("Erro inesperado! Tente novamente mais tarde")
+      next: () => {this.router.navigate(['/home']);},
+      error: () => {
+        Swal.fire({
+          title: 'Erro no Login',
+          text: 'E-mail ou senha incorretos. Por favor, tente novamente.',
+          icon: 'error',
+          confirmButtonColor: '#046B46',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'OK'
+        });
+      }
       
     })
   }

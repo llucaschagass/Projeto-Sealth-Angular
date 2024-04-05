@@ -7,6 +7,7 @@ import { ConfigComponent } from './pages/config/config.component';
 import { HealthComponent } from './pages/health/health.component';
 import { AppointmentsComponent } from './pages/appointments/appointments.component';
 import { MedicinesComponent } from './pages/medicines/medicines.component';
+import { AuthGuard } from './services/auth-guard.service';
 
 export const routes: Routes = [
     {
@@ -19,26 +20,32 @@ export const routes: Routes = [
     },
     {
         path: "home",
-        component: HomeComponent
+        component: HomeComponent,
+        canActivate:[AuthGuard]
     },
     {
         path: "info",
-        component: InfoComponent
+        component: InfoComponent,
+        canActivate:[AuthGuard]
     },
     {
         path: "config",
-        component: ConfigComponent
+        component: ConfigComponent,
+        canActivate:[AuthGuard]
     },
     {
         path: "health",
-        component: HealthComponent
+        component: HealthComponent,
+        canActivate:[AuthGuard]
     },
     {
         path: "appointment",
-        component: AppointmentsComponent
+        component: AppointmentsComponent,
+        canActivate:[AuthGuard]
     },
     {
         path: "medicines",
-        component: MedicinesComponent
+        component: MedicinesComponent,
+        canActivate:[AuthGuard]
     }
 ];
