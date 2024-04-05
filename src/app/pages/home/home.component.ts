@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 
@@ -9,9 +9,16 @@ import Swal from 'sweetalert2';
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
+
+  username: string = '';
+
   constructor(private router: Router) { }
 
+  ngOnInit(): void {
+    this.getUsernameFromLocalStorage();
+  }
+  
   openInfoComponent() {
     this.router.navigate(['/info']);
   }
@@ -43,5 +50,14 @@ export class HomeComponent {
         window.location.href = '/login'; 
       }
     });
+  }
+
+  getUsernameFromLocalStorage(): void {
+    const storedUsername = sessionStorage.getItem('username');
+    if (storedUsername) {
+      const parts = storedUsername.split(' ');
+      const firstName = parts[0];
+      this.username = firstName;
+    }
   }
 }
