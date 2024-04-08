@@ -1,0 +1,63 @@
+@import "../../../styles/variables.scss";
+
+.header {
+    background-color: #f0f0f0;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .logo {
+    max-height: 150px; /* Ajuste conforme necessário */
+  }
+  
+  .menu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+  }
+  
+  .menu li {
+    margin-right: 20px; /* Espaçamento entre os itens do menu */
+  }
+  
+  .menu li:last-child {
+    margin-right: 0; /* Remove a margem direita do último item */
+  }
+  
+  .menu li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+  }
+  
+  .content {
+    text-align: center;
+    margin-top: 20px; /* Espaçamento entre o cabeçalho e o conteúdo */
+  }
+  
+  .tagline {
+    font-size: 18px;
+    margin-bottom: 20px; /* Espaçamento entre a tagline e o botão */
+  }
+  
+  .start-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #046B46;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+  }
+  
+  .start-button:hover {
+    background-color: #035c35;
+  }
+
+  .section {
+    height: 100vh; /* Define a altura da sessão como a altura da viewport */
+    scroll-margin-top: 60px; /* Margem superior para compensar a altura do cabeçalho */
+  }

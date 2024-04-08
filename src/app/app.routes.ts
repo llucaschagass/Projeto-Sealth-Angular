@@ -8,8 +8,13 @@ import { HealthComponent } from './pages/health/health.component';
 import { AppointmentsComponent } from './pages/appointments/appointments.component';
 import { MedicinesComponent } from './pages/medicines/medicines.component';
 import { AuthGuard } from './services/auth-guard.service';
+import { MainComponent } from './pages/main/main.component';
 
 export const routes: Routes = [
+    {
+        path: "",
+        component: MainComponent
+    },
     {
         path: "login",
         component: LoginComponent
