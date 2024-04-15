@@ -50,6 +50,10 @@ export class HealthComponent {
       }
     });
   }
+  ngOnInit(): void {
+    this.getUsernameFromLocalStorage();
+  }
+  
 
   calcularImc(): void {
     this.userImc = this.userPeso / (this.userAltura * this.userAltura);
@@ -99,6 +103,17 @@ export class HealthComponent {
       this.userWeightStatus = "Peso Ideal";
     } else {
       this.userWeightStatus = "Acima do Peso Ideal";
+    }
+  }
+
+  username: string = '';
+
+  getUsernameFromLocalStorage(): void {
+    const storedUsername = sessionStorage.getItem('username');
+    if (storedUsername) {
+      const parts = storedUsername.split(' ');
+      const firstName = parts[0];
+      this.username = firstName;
     }
   }
 

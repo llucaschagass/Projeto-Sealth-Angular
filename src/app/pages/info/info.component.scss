@@ -19,6 +19,27 @@
     margin-bottom: 40px;
 }
 
+.overlay {
+  position: fixed;
+  top: 20px;
+  right: 240px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+/* Estilos para as imagens dentro da overlay */
+.overlay img {
+  width: 180px;
+  height: auto;
+  margin-bottom: 5px;
+}
+
+/* Estilos para o texto dentro da overlay */
+.overlay h1 {
+  font-size: 36px;
+}
+
 .title-container {
     position: absolute;
     left: 50%; 
