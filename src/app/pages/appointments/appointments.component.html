@@ -3,7 +3,12 @@
     <div class="title-container">
         <h1 class="title">Minhas Consultas</h1>
     </div>
-    <img src="/assets/png/user-icon.png" alt="User Icon" class="user-icon" (click)="confirmLogout()">
+    
+    <div class="overlay">
+        <img src="/assets/png/user-icon.png" alt="User Icon" (click)="confirmLogout()">
+        <h1>Olá {{ username }}</h1>
+    </div>
+    
 </header>
 
 <div class="main-container">

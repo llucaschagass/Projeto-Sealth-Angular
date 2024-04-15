@@ -17,7 +17,7 @@
 .health-header .user-icon {
     width: 180px; 
     height: auto;
-    margin-bottom: 40px; 
+    
 }
 
 .health-header .title-container {
@@ -192,4 +192,26 @@
     width: 360px; 
     height: auto; 
     
+}
+
+.overlay {
+    position: fixed;
+    top: 20px;
+    right: 240px;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+/* Estilos para as imagens dentro da overlay */
+.overlay img {
+    width: 140px;
+    height: auto;
+    margin-bottom: 5px;
+}
+
+/* Estilos para o texto dentro da overlay */
+.overlay h1 {
+    font-size: 36px;
 }

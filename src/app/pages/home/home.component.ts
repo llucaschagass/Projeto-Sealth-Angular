@@ -12,12 +12,15 @@ import Swal from 'sweetalert2';
 export class HomeComponent implements OnInit {
 
   username: string = '';
+  
 
   constructor(private router: Router) { }
 
+  
   ngOnInit(): void {
     this.getUsernameFromLocalStorage();
   }
+  
   
   openInfoComponent() {
     this.router.navigate(['/info']);
@@ -52,6 +55,7 @@ export class HomeComponent implements OnInit {
     });
   }
 
+    
   getUsernameFromLocalStorage(): void {
     const storedUsername = sessionStorage.getItem('username');
     if (storedUsername) {
