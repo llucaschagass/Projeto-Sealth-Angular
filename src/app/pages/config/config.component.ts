@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from '../../services/user.service';
 import Swal from 'sweetalert2';
-import { User } from '../../types/user';
+import { User } from '../../../types/user';
 import { FormsModule } from '@angular/forms';
 
 @Component({
