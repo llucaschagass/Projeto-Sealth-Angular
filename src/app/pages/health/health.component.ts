@@ -1,19 +1,18 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
+import { HealthService } from '../../services/health.service';
 
 @Component({
   selector: 'app-health',
-  standalone: true,
-  imports: [],
   templateUrl: './health.component.html',
-  styleUrl: './health.component.scss'
+  styleUrls: ['./health.component.scss']
 })
-export class HealthComponent {
-  userPeso: number = 70; 
-  userAltura: number = 1.75; 
-  userIdade: number = 30; 
-  userSexo: string = 'masculino'; 
+export class HealthComponent implements OnInit {
+  userPeso: number = 0; 
+  userAltura: number = 0; 
+  userIdade: number = 0; 
+  userSexo: string = ''; 
   userImc: number = 0; 
   aguaRecomendada: number = 0; 
   caloriasDiarias: number = 0; 
@@ -21,7 +20,29 @@ export class HealthComponent {
   userImcEvaluation: string = "";
   userWeightStatus: string = "";
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private healthService: HealthService) {}
+
+  ngOnInit(): void {
+    this.getHealthDefaults();
+    this.getUsernameFromLocalStorage();
+  }
+
+  getHealthDefaults(): void {
+    this.healthService.getHealthDefaults().subscribe(
+      (defaults: any) => {
+        this.userPeso = defaults.defaultWeight;
+        this.userAltura = defaults.defaultHeight;
+        this.userIdade = defaults.defaultAge;
+        this.userSexo = defaults.defaultSex;
+        this.updateCalculations();
+      },
+      (error: any) => {
+        console.error('Error fetching health defaults:', error);
+      }
+    );
+  }
+
+  updateCalculations(): void {
     this.calcularImc();
     this.calcularAguaRecomendada();
     this.calcularCaloriasDiarias();
@@ -29,31 +50,6 @@ export class HealthComponent {
     this.avaliarIMC();
     this.avaliarPeso();
   }
-
-  redirectToHome(): void {
-    this.router.navigate(['/home']);
-  }
-
-  confirmLogout(): void {
-    Swal.fire({
-      title: 'Você tem certeza?',
-      text: 'Deseja realmente sair?',
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonColor: '#046B46',
-      cancelButtonColor: '#d33',
-      confirmButtonText: 'Certeza',
-      cancelButtonText: 'Cancelar'
-    }).then((result) => {
-      if (result.isConfirmed) {
-        window.location.href = '/login'; 
-      }
-    });
-  }
-  ngOnInit(): void {
-    this.getUsernameFromLocalStorage();
-  }
-  
 
   calcularImc(): void {
     this.userImc = this.userPeso / (this.userAltura * this.userAltura);
@@ -74,7 +70,7 @@ export class HealthComponent {
         this.caloriasDiarias = 447.593 + (9.247 * this.userPeso) + (3.098 * this.userAltura * 100) - (4.330 * this.userIdade);
     }
     this.caloriasDiarias = this.caloriasDiarias / 1000; 
-}
+  }
 
   calcularPesoIdeal(): void {
     if (this.userSexo === 'masculino') {
@@ -117,4 +113,24 @@ export class HealthComponent {
     }
   }
 
+  redirectToHome(): void {
+    this.router.navigate(['/home']);
+  }
+
+  confirmLogout(): void {
+    Swal.fire({
+      title: 'Você tem certeza?',
+      text: 'Deseja realmente sair?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#046B46',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Certeza',
+      cancelButtonText: 'Cancelar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        window.location.href = '/login'; 
+      }
+    });
+  }
 }
