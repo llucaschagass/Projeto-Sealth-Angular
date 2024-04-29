@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
+import { MedicinesService } from '../../services/medicines.service';
 
 @Component({
   selector: 'app-medicines',
@@ -10,10 +11,19 @@ import Swal from 'sweetalert2';
   styleUrl: './medicines.component.scss'
 })
 export class MedicinesComponent {
-  constructor(private router: Router) {}
+  username: string = '';
+  medicines: string[] = [];
+  selectedMedicine: string = '';
+
+  constructor(private router: Router, private medicinesService: MedicinesService) {}
+
+  ngOnInit(): void {
+    this.getUsernameFromLocalStorage();
+  }
   
   redirectToHome(): void {
     this.router.navigate(['/home']);
+    this.getMedicines();
   }
 
   confirmLogout(): void {
@@ -32,14 +42,30 @@ export class MedicinesComponent {
       }
     });
   }
-  
-  
-  username: string = '';
-  ngOnInit(): void {
-    this.getUsernameFromLocalStorage();
-  }
- 
 
+  getMedicines(): void {
+    this.medicinesService.getMedicinesPDFs().subscribe(
+      (medicines: string[]) => {
+        this.medicines = medicines;
+      },
+      (error) => {
+        console.error('Error fetching medicines:', error);
+      }
+    );
+  }
+
+  selectMedicine(medicine: string): void {
+    this.selectedMedicine = medicine;
+  }
+
+  downloadPDF(medicine: string): void {
+   const pdfUrl = `/assets/pdf/${medicine}.pdf`;
+    const link = document.createElement('a');
+    link.href = pdfUrl;
+    link.download = `${medicine}.pdf`;
+    link.click();
+  }
+  
   getUsernameFromLocalStorage(): void {
     const storedUsername = sessionStorage.getItem('username');
     if (storedUsername) {
@@ -48,5 +74,4 @@ export class MedicinesComponent {
       this.username = firstName;
     }
   }
-  
 }
