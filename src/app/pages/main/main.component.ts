@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
   styleUrl: './main.component.scss'
 })
 export class MainComponent {
+  email: string = "suporte@sealth.com.br";
   constructor(private router: Router) { }
   
   openLogin(): void {
