@@ -33,4 +33,19 @@ export class InfoComponent {
     });
   }
 
+  username: string = '';
+  
+  ngOnInit(): void {
+    this.getUsernameFromLocalStorage();
+  }
+  
+  getUsernameFromLocalStorage(): void {
+    const storedUsername = sessionStorage.getItem('username');
+    if (storedUsername) {
+      const parts = storedUsername.split(' ');
+      const firstName = parts[0];
+      this.username = firstName;
+    }
+  }
+
 }

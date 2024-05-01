@@ -52,6 +52,8 @@ export class SignupComponent {
             icon: 'success',
             confirmButtonColor: '#046B46',
             confirmButtonText: 'OK'
+        }).then(() => {
+          this.router.navigate(['/login']);
         });
     },
     error: () => {

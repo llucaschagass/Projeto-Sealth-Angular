@@ -3,23 +3,35 @@
     <div class="title-container">
         <h1 class="title">Meus Medicamentos</h1>
     </div>
-    <img src="/assets/png/user-icon.png" alt="User Icon" class="user-icon" (click)="confirmLogout()">
+    
+    <div class="overlay">
+        <img src="/assets/png/user-icon.png" alt="User Icon" (click)="confirmLogout()">
+        <h1>Olá {{ username }}</h1>
+    </div>
+    
 </header>
 
 <div class="main-container">
-    <div class="medicines-containner">
+    <div class="medicines-container">
         <div class="medicines-module">
             <h2 class="module-title">Receitas Disponíveis</h2>
-            <div class="info-container"></div>
+            <div class="info-container">
+                <ul>
+                    <li *ngFor="let medicine of medicines" (click)="selectMedicine(medicine)">{{ medicine }}</li>
+                </ul>
+            </div>
         </div>
     </div>
-    <div class="download-containner">
+    <div class="download-container">
         <div class="download-module">
             <h2 class="module-title">Download PDF</h2>
-            <div class="download-content">
-                <img src="/assets/png/download-icon.png" alt="Download" class="download-icon">
-                <p class="select-text">Selecione uma receita</p>
+            <div class="download-content" *ngIf="selectedMedicine">
+                <a href="#" (click)="downloadPDF(selectedMedicine)">
+                    <img src="/assets/png/download-icon.png" alt="Download" class="download-icon">
+                    <p class="select-text">Baixar {{ selectedMedicine }}</p>
+                </a>
             </div>
+            <div *ngIf="!selectedMedicine" class="select-text">Selecione um medicamento</div>
         </div>
         <img src="/assets/png/lab-background.png" alt="Imagem" class="image-corner">
     </div> 
