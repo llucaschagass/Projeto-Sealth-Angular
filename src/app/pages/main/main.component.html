@@ -1,51 +1,106 @@
 <div class="header">
+
     <img src="/assets/png/logo-big.png" alt="Logo do Sistema" class="logo">
     <ul class="menu">
         <li><a href="#servicos">Serviços</a></li>
         <li><a href="#contato">Contato</a></li>
         <li><a href="#sobre">Sobre</a></li>
     </ul>
+
 </div>
 
-<div class="content">
-    <p class="tagline">Fique tranquilo sabendo que sua saúde está em boas mãos.</p>
-    <button class="start-button" (click)="openLogin()">Comece Agora</button>
-</div>
-<div class="content">
-  <img src="assets/png/main-menu.png" alt="Imagem sobre servicos">
-</div>
+  <div class="content">
 
-<div class="content">
-    <section id="servicos" class="section">
-      <h2>Nossos Serviços</h2>
-      <p>
-        <strong>1. Minhas Consultas:</strong> Agende, visualize e gerencie suas consultas médicas de forma conveniente.
-      </p>
-      <p>
-        <strong>2. Meus Medicamentos:</strong> Acesse informações sobre seus medicamentos prescritos, incluindo dosagem e horários de administração.
-      </p>
-      <p>
-        <strong>3. Avisos Importantes:</strong> Mantenha-se informado com alertas sobre campanhas de vacinação, surtos de doenças e outras orientações de saúde.
-      </p>
-      <p>
-        <strong>4. Minha Saúde:</strong> Registre e monitore informações pessoais de saúde, como peso, altura e pressão arterial, e receba feedback personalizado para melhorar seu bem-estar.
-      </p>
-      <div class="content">
-        <img src="assets/png/main-services.png" alt="Imagem sobre servicos">
+      <div class="conteiner-inicio">
+
+        <div class="vaiza">
+          <p></p>
+          <!-- //////////////////////////////////// -->
+        </div>
+
+        <div class="quadro">
+
+          <p class="tagline">Fique tranquilo sabendo que sua saúde está em boas mãos.</p>
+
+          <div class="conteiner-inicio-img">
+            <img src="assets/png/main-menu.png" alt="Imagem sobre servicos">
+          </div>
+
+          <br>
+
+          <div class="quadro-button">
+            <button class="start-button" (click)="openLogin()">Comece Agora</button>
+          </div>
+          
+
+        </div>
+
+        <div class="vaiza">
+          <p></p>
+          <!-- //////////////////////////////////// -->
+        </div>
+
       </div>
-    </section>
-    
+
+  </div>
+
+
+
+
+<div class="content">
+
+  <div class="conteiner">
+
+    <div class="conteiner-img">
+
+      <img src="assets/png/main-services.png" alt="Imagem sobre servicos">
+
+    </div>
+
+    <div class="conteiner-text"> 
+      
+      <section id="servicos" >
+        
+      <h2>Nossos Serviços</h2>
+        <p>
+          <strong>1. Minhas Consultas:</strong> Agende, visualize e gerencie suas consultas médicas de forma conveniente.
+        </p>
+        <p>
+          <strong>2. Meus Medicamentos:</strong> Acesse informações sobre seus medicamentos prescritos, incluindo dosagem e horários de administração.
+        </p>
+        <p>
+          <strong>3. Avisos Importantes:</strong> Mantenha-se informado com alertas sobre campanhas de vacinação, surtos de doenças e outras orientações de saúde.
+        </p>
+        <p>
+          <strong>4. Minha Saúde:</strong> Registre e monitore informações pessoais de saúde, como peso, altura e pressão arterial, e receba feedback personalizado para melhorar seu bem-estar.
+        </p>
+        
+      
+      </section>
+
+    </div>
+
+  </div> 
+
+
+  <div class="conteiner-contato">
+
     <section id="contato" class="section">
+
       <div class="contact-info">
         <h2>Contato</h2>
         <p><strong>E-mail:</strong> {{ email }}</p>
         <p><strong>Telefone:</strong> (12) 3456-7890</p>
         <p><strong>Endereço:</strong> Rua Qualquer, 123, Belory Hills, Estado, País</p>
       </div>
-      <div class="content">
-        <img src="assets/png/main-contact.png" alt="Imagem sobre contato">
-      </div>
+    
     </section>
+
+    <div class="conteiner-img">
+      <img src="assets/png/main-contact.png" alt="Imagem sobre contato">
+    </div>
+
+  </div>
     
     <section id="sobre" class="section">
       <div class="content">
