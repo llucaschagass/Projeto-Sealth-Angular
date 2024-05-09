@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { HealthService } from '../../services/health.service';
+import { HealthDefaultsResponse } from '../../../types/health-response.type';
 
 @Component({
   selector: 'app-health',
@@ -29,15 +30,25 @@ export class HealthComponent implements OnInit {
 
   getHealthDefaults(): void {
     const healthDefaultsString = localStorage.getItem('healthDefaults');
+
     if (healthDefaultsString) {
-      const healthDefaults = JSON.parse(healthDefaultsString);
-      this.userPeso = healthDefaults.defaultWeight;
-      this.userAltura = healthDefaults.defaultHeight;
-      this.userIdade = healthDefaults.defaultAge;
-      this.userSexo = healthDefaults.defaultSex;
+      const healthDefaults: HealthDefaultsResponse = JSON.parse(healthDefaultsString);
+      this.userPeso = healthDefaults.weight;
+      this.userAltura = healthDefaults.height;
+      this.userIdade = healthDefaults.age;
+      this.userSexo = healthDefaults.sex;
       this.updateCalculations();
     } else {
-      console.error('Health defaults not found in local storage');
+      this.healthService.getHealthDefaults().subscribe({
+        next: (defaults: HealthDefaultsResponse) => {
+          this.userPeso = defaults.weight;
+          this.userAltura = defaults.height;
+          this.userIdade = defaults.age;
+          this.userSexo = defaults.sex;
+          this.updateCalculations();
+        },
+        error: (error: any) => console.log(error),
+      })
     }
   }
 

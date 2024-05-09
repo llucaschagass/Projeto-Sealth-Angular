@@ -17,11 +17,8 @@ export class HealthService {
     const token = sessionStorage.getItem('auth-token'); 
 
     if (token) {
-      const tokenString = JSON.stringify(token);
-      console.log(tokenString)
-
       const headers = new HttpHeaders({
-        'Authorization': `Bearer ${tokenString}`
+        'Authorization': `Bearer ${token}`
       });
 
       return this.httpClient.get<HealthDefaultsResponse>(`${this.apiUrl}/defaults`, { headers }).pipe(
