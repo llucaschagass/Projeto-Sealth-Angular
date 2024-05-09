@@ -63,11 +63,9 @@ export class MedicinesComponent {
   }
 
   downloadPDF(medicine: string): void {
-   const pdfUrl = `/assets/pdf/${medicine}.pdf`;
-    const link = document.createElement('a');
-    link.href = pdfUrl;
-    link.download = `${medicine}.pdf`;
-    link.click();
+    const lowercaseMedicine = medicine.toLowerCase(); 
+    const pdfUrl = `/assets/pdf/${lowercaseMedicine}.pdf`;
+    window.open(pdfUrl, '_blank');
   }
   
   getUsernameFromLocalStorage(): void {
