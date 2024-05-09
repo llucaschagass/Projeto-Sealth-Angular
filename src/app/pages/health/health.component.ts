@@ -28,18 +28,17 @@ export class HealthComponent implements OnInit {
   }
 
   getHealthDefaults(): void {
-    this.healthService.getHealthDefaults().subscribe(
-      (defaults: any) => {
-        this.userPeso = defaults.defaultWeight;
-        this.userAltura = defaults.defaultHeight;
-        this.userIdade = defaults.defaultAge;
-        this.userSexo = defaults.defaultSex;
-        this.updateCalculations();
-      },
-      (error: any) => {
-        console.error('Error fetching health defaults:', error);
-      }
-    );
+    const healthDefaultsString = localStorage.getItem('healthDefaults');
+    if (healthDefaultsString) {
+      const healthDefaults = JSON.parse(healthDefaultsString);
+      this.userPeso = healthDefaults.defaultWeight;
+      this.userAltura = healthDefaults.defaultHeight;
+      this.userIdade = healthDefaults.defaultAge;
+      this.userSexo = healthDefaults.defaultSex;
+      this.updateCalculations();
+    } else {
+      console.error('Health defaults not found in local storage');
+    }
   }
 
   updateCalculations(): void {
