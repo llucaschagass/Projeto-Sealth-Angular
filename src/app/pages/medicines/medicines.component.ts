@@ -2,11 +2,14 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { MedicinesService } from '../../services/medicines.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-medicines',
   standalone: true,
-  imports: [],
+  imports: [
+    CommonModule,
+  ],
   templateUrl: './medicines.component.html',
   styleUrl: './medicines.component.scss'
 })
@@ -18,6 +21,7 @@ export class MedicinesComponent {
   constructor(private router: Router, private medicinesService: MedicinesService) {}
 
   ngOnInit(): void {
+    this.getMedicines()
     this.getUsernameFromLocalStorage();
   }
   
