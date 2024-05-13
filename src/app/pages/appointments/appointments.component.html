@@ -23,8 +23,9 @@
             </ul>
         </div>
         <div class="buttons-container">
-            <button class="button">Marcar</button>
-            <button class="button">Cancelar</button>
+            <button class="button" (click)="createAppointment()">Marcar</button>
+            <button class="button" (click)="cancelAppointment()">Cancelar</button>
+            <button class="button" (click)="updateAppointment()">Atualizar</button>
         </div>
     </div>
     <div class="appointments-container">
