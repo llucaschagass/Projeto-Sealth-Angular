@@ -62,10 +62,11 @@ export class MedicinesComponent {
     this.selectedMedicine = medicine;
   }
 
-  downloadPDF(medicine: string): void {
+  downloadPDF(medicine: string, event: Event): void {
+    event.preventDefault(); // Prevenir o comportamento padrão do clique
     const lowercaseMedicine = medicine.toLowerCase(); 
     const pdfUrl = `/assets/pdf/${lowercaseMedicine}.pdf`;
-    window.open(pdfUrl, '_blank');
+    window.open(pdfUrl, '_blank'); // Abre o PDF em uma nova aba
   }
   
   getUsernameFromLocalStorage(): void {
