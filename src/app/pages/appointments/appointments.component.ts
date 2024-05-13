@@ -58,7 +58,16 @@ export class AppointmentsComponent implements OnInit {
   getAllAppointments(): void {
     this.appointmentsService.getAllAppointments().subscribe(
       appointments => {
-        this.appointments = appointments;
+        this.appointments = appointments.map(appointment => {
+          const parts = appointment.date.split('-');
+          const year = parts[0];
+          const month = parts[1];
+          const day = parts[2];
+          return {
+            ...appointment,
+            date: `${day}/${month}/${year}`
+          };
+        });
       },
       error => {
         console.error('Erro ao obter agendamentos:', error);
@@ -142,11 +151,16 @@ export class AppointmentsComponent implements OnInit {
           const date = (document.getElementById('date') as HTMLInputElement).value;
           const location = (document.getElementById('location') as HTMLInputElement).value;
           const extraInfo = (document.getElementById('extraInfo') as HTMLInputElement).value;
-  
+
+          const parts = date.split('/');
+          const day = parts[0];
+          const month = parts[1];
+          const year = parts[2];
+          const formattedDate = `${year}-${month}-${day}`;
           const updatedData = {
             doctor,
             specialty,
-            date,
+            date: formattedDate,
             location,
             extraInformation: extraInfo
           };
@@ -208,15 +222,21 @@ export class AppointmentsComponent implements OnInit {
         const date = (document.getElementById('date') as HTMLInputElement).value;
         const location = (document.getElementById('location') as HTMLInputElement).value;
         const extraInfo = (document.getElementById('extraInfo') as HTMLInputElement).value;
-
+  
+        const parts = date.split('/'); 
+        const day = parts[0]; 
+        const month = parts[1]; 
+        const year = parts[2]; 
+        const formattedDate = `${year}-${month}-${day}`; 
+  
         const appointmentData = {
           doctor,
           specialty,
-          date,
+          date: formattedDate, 
           location,
           extraInfo
         };
-
+  
         return this.appointmentsService.createAppointment(appointmentData).toPromise();
       }
     }).then((result) => {

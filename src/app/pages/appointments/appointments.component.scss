@@ -66,12 +66,37 @@
     font-size: 26px;
     color: white;
     font-family: "Poppins", sans-serif;
-    padding: 20px;
+    padding: 40px;
     font-weight: bold;
     transition: transform 0.3s ease;
     cursor: pointer;
     margin-left: 150px;
     margin-bottom: 20px;
+
+    &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 6px 0 rgba(0, 0, 0, 0.5);
+    }
+}
+
+.appointments-module-info {
+    position: relative;
+    width: 700px;
+    height: 500px;
+    background-color: $primary-color;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    font-size: 26px;
+    color: white;
+    font-family: "Poppins", sans-serif;
+    padding: 40px;
+    font-weight: bold;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    margin-right: 150px;
+    margin-bottom: 20px;
+    margin-top: 50px;
 
     &:hover {
         transform: translateY(-5px);
@@ -103,7 +128,7 @@
 }
 
 .appointments-module .appointment-list li {
-    padding: 10px 0; 
+    padding: 10px; 
 }
 
 .appointments-module .buttons-container {
