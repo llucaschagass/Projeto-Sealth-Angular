@@ -1,17 +1,25 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { CommonModule } from '@angular/common';
 import Swal from 'sweetalert2';
+import { AppointmentsService } from '../../services/appointments.service';
 
 @Component({
   selector: 'app-appointments',
   standalone: true,
-  imports: [],
+  imports: [
+    CommonModule,
+  ],
   templateUrl: './appointments.component.html',
-  styleUrl: './appointments.component.scss'
+  styleUrls: ['./appointments.component.scss']
 })
-export class AppointmentsComponent {
-  constructor(private router: Router) {}
-  
+export class AppointmentsComponent implements OnInit {
+  username: string = '';
+  appointments: any[] = [];
+  selectedAppointment: any = null;
+
+  constructor(private router: Router, private appointmentsService: AppointmentsService) {}
+
   redirectToHome(): void {
     this.router.navigate(['/home']);
   }
@@ -33,10 +41,11 @@ export class AppointmentsComponent {
     });
   }
 
-  username: string = '';
   ngOnInit(): void {
     this.getUsernameFromLocalStorage();
+    this.getAllAppointments();
   }
+
   getUsernameFromLocalStorage(): void {
     const storedUsername = sessionStorage.getItem('username');
     if (storedUsername) {
@@ -44,5 +53,21 @@ export class AppointmentsComponent {
       const firstName = parts[0];
       this.username = firstName;
     }
+  }
+
+  getAllAppointments(): void {
+    this.appointmentsService.getAllAppointments().subscribe(
+      appointments => {
+        console.log('Agendamentos obtidos:', appointments);
+        this.appointments = appointments;
+      },
+      error => {
+        console.error('Erro ao obter agendamentos:', error);
+      }
+    );
+  }
+
+  selectAppointment(appointment: any): void {
+    this.selectedAppointment = appointment;
   }
 }

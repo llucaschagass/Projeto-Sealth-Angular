@@ -98,6 +98,18 @@
     font-size: 20px;
 }
 
+.appointments-module .appointment-list {
+    margin-top: 20px;
+}
+
+.appointments-module .appointment-list li {
+    padding: 10px 0; 
+}
+
+.appointments-module .buttons-container {
+    margin-top: 20px;
+}
+
 .buttons-container {
     display: flex;
     margin-left: 150px;
@@ -124,28 +136,10 @@
 
 .calendar-container {
     position: relative; 
-    width: 600px; /* Defina a largura desejada para o container do calendário */
-    height: 600px; /* Defina a altura desejada para o container do calendário */
+    width: 600px; 
+    height: 600px; 
     margin-top: 53px;
-  }
-  
-  .calendar {
-    /* Estilos para o container do calendário */
-    width: 100%;
-    height: 100%;
-    background-color: #ffffff; /* Cor de fundo do calendário */
-    border-radius: 10px; /* Bordas arredondadas */
-    /* Adicione outros estilos desejados para o calendário */
-  }
-  
-  .calendar-image {
-    position: absolute; 
-    margin-right: 150px;
-    bottom: 30px;
-    right: 0;
-    width: 650px; 
-    height: auto; 
-  }
+}
 
 .overlay {
     position: fixed;
