@@ -50,14 +50,24 @@ export class ConfigComponent implements OnInit {
         this.userId = userData.id;
       },
       error: () => {
-        Swal.fire('Erro', 'Não foi possível obter os dados do usuário.', 'error');
+        Swal.fire({
+            title: 'Erro',
+            text: 'Não foi possível obter os dados do usuário.',
+            icon: 'error',
+            confirmButtonColor: '#046B46',
+        });
       }
     });
   }
 
   updateUser(): void {
     if (!this.userId) {
-      Swal.fire('Erro', 'Não foi possível obter o ID do usuário.', 'error');
+      Swal.fire({
+        title: 'Erro',
+        text: 'Não foi possível obter o ID do usuário.',
+        icon: 'error',
+        confirmButtonColor: '#046B46',
+      });
       return;
     }
   
@@ -67,12 +77,31 @@ export class ConfigComponent implements OnInit {
       password: this.user.newPassword
     };
 
-    this.userService.updateUserData(this.userId, updatedUserData).subscribe({
+    this.userService.updateUserData(updatedUserData).subscribe({
       next: () => {
-        Swal.fire('Sucesso', 'Dados do usuário atualizados com sucesso!', 'success');
+        Swal.fire({
+          title: 'Sucesso',
+          text: 'Dados do usuário atualizados com sucesso!',
+          icon: 'success',
+          confirmButtonColor: '#046B46'
+        }).then(() => {
+          Swal.fire({
+            title: 'Aviso',
+            text: 'Os dados foram atualizados. É necessário autenticar novamente.',
+            icon: 'warning',
+            confirmButtonColor: '#046B46'
+          }).then(() => {
+            window.location.href = '/login';
+          });
+        });
       },
       error: () => {
-        Swal.fire('Erro', 'Não foi possível atualizar os dados do usuário.', 'error');
+        Swal.fire({
+          title: 'Erro',
+          text: 'Não foi possível atualizar os dados do usuário.',
+          icon:  'error',
+          confirmButtonColor: '#046B46'
+        });
       }
     });
   }

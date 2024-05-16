@@ -37,7 +37,8 @@ export class UserService {
     );
   }
 
-  updateUserData(userId: string, updatedUserData: Partial<User>): Observable<any> {
+  updateUserData(updatedUserData: Partial<User>): Observable<any> {
+    const userId = sessionStorage.getItem('user-id');
     const token = sessionStorage.getItem('auth-token');
     if (!token) {
       return throwError(() => new Error('Token not found in session storage'));
@@ -46,6 +47,8 @@ export class UserService {
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${token}`
     });
+
+    console.log('Atualizando dados do usuário:', updatedUserData);
 
     return this.http.put(`${this.apiUrl}/update/${userId}`, updatedUserData, { headers }).pipe(
       catchError(error => throwError(error))
