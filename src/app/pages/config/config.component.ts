@@ -26,6 +26,8 @@ export class ConfigComponent implements OnInit {
   };
   userId: string = ''; 
   username: string = ''; 
+  oldName: string = '';
+  oldEmail: string = '';
 
   constructor(private router: Router, private userService: UserService) {}
 
@@ -48,6 +50,8 @@ export class ConfigComponent implements OnInit {
       next: (userData) => {
         this.user = userData;
         this.userId = userData.id;
+        this.oldName = localStorage.getItem('user-name') || '';
+        this.oldEmail = localStorage.getItem('user-email') || '';
       },
       error: () => {
         Swal.fire({
@@ -66,6 +70,16 @@ export class ConfigComponent implements OnInit {
         title: 'Erro',
         text: 'Não foi possível obter o ID do usuário.',
         icon: 'error',
+        confirmButtonColor: '#046B46',
+      });
+      return;
+    }
+
+    if ((this.oldName === this.user.newName) || (this.oldEmail === this.user.newEmail)) {
+      Swal.fire({
+        title: 'Atenção',
+        text: 'Os itens que você está tentando alterar são iguais aos atuais. Por favor, faça alterações válidas.',
+        icon: 'warning',
         confirmButtonColor: '#046B46',
       });
       return;
