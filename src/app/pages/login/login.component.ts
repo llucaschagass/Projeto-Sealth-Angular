@@ -34,6 +34,10 @@ export class LoginComponent {
     })
   }
 
+  ngOnInit(): void {
+    this.clearLocalStorage();
+  }
+
   submit(){
     this.loginService.login(this.loginForm.value.email, this.loginForm.value.password).subscribe({
       next: () => {this.router.navigate(['/home']);},
@@ -54,4 +58,39 @@ export class LoginComponent {
   navigate(){
     this.router.navigate(["/signup"])
   }
+
+  recoverPassword(): void {
+    Swal.fire({
+        title: 'Recuperar Senha',
+        html: `
+            <input type="email" id="recoverEmail" class="swal2-input" placeholder="Digite seu e-mail">
+        `,
+        showCancelButton: true,
+        confirmButtonText: 'Continuar',
+        cancelButtonText: 'Cancelar',
+        confirmButtonColor: '#046B46',
+        preConfirm: (): string | null => {
+            const recoverEmail = (Swal.getPopup()!.querySelector('#recoverEmail') as HTMLInputElement).value;
+            if (!recoverEmail) {
+                Swal.showValidationMessage('Por favor, digite um e-mail');
+                return null;
+            }
+            return recoverEmail;
+        }
+    }).then((result) => {
+        if (result.isConfirmed && result.value) {
+            Swal.fire({
+                title: 'Sucesso',
+                text: 'Foi enviado um link de recuperação no e-mail cadastrado',
+                icon: 'success',
+                confirmButtonColor: '#046B46',
+            });
+        }
+    });
+  }
+
+  clearLocalStorage(){
+    localStorage.clear();
+  }
+
 }

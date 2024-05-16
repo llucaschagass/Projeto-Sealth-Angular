@@ -10,36 +10,36 @@
 
 .config-header .logo,
 .config-header .user-icon {
-    width: 400px; /* Tamanho dos ícones */
+    width: 400px; 
     height: auto;
 }
 
 .config-header .user-icon {
-    width: 180px; /* Tamanho do ícone de usuário */
+    width: 180px; 
     height: auto;
-    margin-bottom: 40px; /* Espaçamento inferior */
+    margin-bottom: 40px; 
 }
 
 .config-header .title-container {
     position: absolute;
-    left: 50%; /* Centraliza horizontalmente */
-    transform: translateX(-50%); /* Centraliza horizontalmente */
+    left: 50%; 
+    transform: translateX(-50%); 
     flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: $primary-color; /* Cor de fundo */
-    border-radius: 30px; /* Borda arredondada */
-    padding: 10px; /* Espaçamento interno */
-    max-width: 700px; /* Largura máxima */
+    background-color: $primary-color; 
+    border-radius: 30px; 
+    padding: 10px; 
+    max-width: 700px; 
 }
 
 .config-header .title-container h1 {
-    color: white; /* Cor do texto */
-    margin: 0; /* Remove margens */
+    color: white; 
+    margin: 0; 
 }
 
-/* Estilos para a grade de balões */
+
 .grid-container {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -59,7 +59,7 @@
 .form-group {
     display: flex;
     align-items: center;
-    justify-content: flex-end; /* Posiciona os itens à direita */
+    justify-content: flex-end; 
     margin-bottom: 20px;
 }
 
@@ -68,7 +68,7 @@
     background-color: $primary-color;
     padding: 10px;
     border-radius: 5px;
-    text-align: center; /* Centraliza o texto */
+    text-align: center; 
 }
 
 label {
@@ -85,7 +85,7 @@ input[type="text"],
 input[type="email"],
 input[type="tel"],
 input[type="password"] {
-    width: 500px; /* Defina a largura desejada */
+    width: 500px; 
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -164,14 +164,12 @@ button:hover {
     justify-content: flex-start;
 }
 
-/* Estilos para as imagens dentro da overlay */
 .overlay img {
     width: 180px;
     height: auto;
     margin-bottom: 5px;
 }
 
-/* Estilos para o texto dentro da overlay */
 .overlay h1 {
     font-size: 36px;
 }
