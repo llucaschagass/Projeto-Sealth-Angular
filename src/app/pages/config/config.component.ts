@@ -1,37 +1,53 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { FormsModule } from '@angular/forms'; 
 import { UserService } from '../../services/user.service';
 import Swal from 'sweetalert2';
 import { User } from '../../../types/user.type';
-import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-config',
+  templateUrl: './config.component.html',
+  styleUrls: ['./config.component.scss'],
   standalone: true,
   imports: [
-    FormsModule,
-  ],
-  templateUrl: './config.component.html',
-  styleUrl: './config.component.scss'
+    FormsModule 
+  ]
 })
-export class ConfigComponent {
+export class ConfigComponent implements OnInit {
   user: User = {
     name: '',
     email: '',
-    password: ''
+    password: '',
+    id: '',
+    newName: '',
+    newEmail: '',
+    newPassword: ''
   };
-  username: string = '';
+  userId: string = ''; 
+  username: string = ''; 
+
   constructor(private router: Router, private userService: UserService) {}
 
   ngOnInit(): void {
     this.getUsernameFromLocalStorage();
     this.getUserData();
+    this.user = {
+      name: '',
+      email: '',
+      password: '',
+      id: '',
+      newName: '',
+      newEmail: '',
+      newPassword: ''
+    };
   }
 
   getUserData(): void {
     this.userService.getUserData().subscribe({
       next: (userData) => {
         this.user = userData;
+        this.userId = userData.id;
       },
       error: () => {
         Swal.fire('Erro', 'Não foi possível obter os dados do usuário.', 'error');
@@ -40,7 +56,18 @@ export class ConfigComponent {
   }
 
   updateUser(): void {
-    this.userService.updateUserData(this.user).subscribe({
+    if (!this.userId) {
+      Swal.fire('Erro', 'Não foi possível obter o ID do usuário.', 'error');
+      return;
+    }
+  
+    const updatedUserData = {
+      name: this.user.newName,
+      email: this.user.newEmail,
+      password: this.user.newPassword
+    };
+
+    this.userService.updateUserData(this.userId, updatedUserData).subscribe({
       next: () => {
         Swal.fire('Sucesso', 'Dados do usuário atualizados com sucesso!', 'success');
       },
