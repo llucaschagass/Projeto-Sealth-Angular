@@ -40,36 +40,51 @@ export class SignupComponent {
       email: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', [Validators.required, Validators.minLength(6)]),
       passwordConfirm: new FormControl('', [Validators.required, Validators.minLength(6)]),
-    })
+    });
   }
 
   submit(){
-    this.loginService.signup(this.signupForm.value.name,this.signupForm.value.email, this.signupForm.value.password).subscribe({
-      next: () => {
+    if (this.signupForm.valid) {
+      const password = this.signupForm.value.password;
+      const confirmPassword = this.signupForm.value.passwordConfirm;
+  
+      if (password !== confirmPassword) {
         Swal.fire({
-            title: 'Sucesso!',
-            text: 'Usuário criado com sucesso!',
-            icon: 'success',
-            confirmButtonColor: '#046B46',
-            confirmButtonText: 'OK'
-        }).then(() => {
-          this.router.navigate(['/login']);
+          title: 'Erro!',
+          text: 'As senhas não coincidem. Por favor, corrija.',
+          icon: 'error',
+          confirmButtonColor: '#046B46',
+          confirmButtonText: 'OK'
         });
-    },
-    error: () => {
-        Swal.fire({
-            title: 'Erro!',
-            text: 'Erro inesperado! Tente novamente mais tarde.',
-            icon: 'error',
-            confirmButtonColor: '#046B46',
-            confirmButtonText: 'OK'
-        });
-    }
+        return;
+      }
       
-    })
+      this.loginService.signup(this.signupForm.value.name,this.signupForm.value.email, this.signupForm.value.password).subscribe({
+        next: () => {
+          Swal.fire({
+              title: 'Sucesso!',
+              text: 'Usuário criado com sucesso!',
+              icon: 'success',
+              confirmButtonColor: '#046B46',
+              confirmButtonText: 'OK'
+          }).then(() => {
+            this.router.navigate(['/login']);
+          });
+        },
+        error: () => {
+          Swal.fire({
+              title: 'Erro!',
+              text: 'Erro inesperado! Tente novamente mais tarde.',
+              icon: 'error',
+              confirmButtonColor: '#046B46',
+              confirmButtonText: 'OK'
+          });
+        }   
+      });
+    } 
   }
 
   navigate(){
-    this.router.navigate(["/login"])
+    this.router.navigate(["/login"]);
   }
 }

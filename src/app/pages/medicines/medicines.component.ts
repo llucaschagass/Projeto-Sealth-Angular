@@ -2,11 +2,14 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { MedicinesService } from '../../services/medicines.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-medicines',
   standalone: true,
-  imports: [],
+  imports: [
+    CommonModule,
+  ],
   templateUrl: './medicines.component.html',
   styleUrl: './medicines.component.scss'
 })
@@ -18,6 +21,7 @@ export class MedicinesComponent {
   constructor(private router: Router, private medicinesService: MedicinesService) {}
 
   ngOnInit(): void {
+    this.getMedicines()
     this.getUsernameFromLocalStorage();
   }
   
@@ -58,12 +62,11 @@ export class MedicinesComponent {
     this.selectedMedicine = medicine;
   }
 
-  downloadPDF(medicine: string): void {
-   const pdfUrl = `/assets/pdf/${medicine}.pdf`;
-    const link = document.createElement('a');
-    link.href = pdfUrl;
-    link.download = `${medicine}.pdf`;
-    link.click();
+  downloadPDF(medicine: string, event: Event): void {
+    event.preventDefault(); // Prevenir o comportamento padrão do clique
+    const lowercaseMedicine = medicine.toLowerCase(); 
+    const pdfUrl = `/assets/pdf/${lowercaseMedicine}.pdf`;
+    window.open(pdfUrl, '_blank'); // Abre o PDF em uma nova aba
   }
   
   getUsernameFromLocalStorage(): void {

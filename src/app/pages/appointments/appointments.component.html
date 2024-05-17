@@ -12,27 +12,31 @@
 </header>
 
 <div class="main-container">
-    <div class="appointments-containner">
+    <div class="calendar-container">
         <div class="appointments-module">
-            <h2 class="module-title">Dados da Consulta</h2>
-            <div class="info-container">
-                <p>Data: 21 de Março de 2024</p>
-                <p>Médico: Dr. João</p>
-                <p>Especialidade: Oftalmologista</p>
-                <p>Local: Hospital XYZ</p>
-                <p class="info-extra">Informações Extras:</p>
-                <p class="important-info">Favor comparecer 30 minutos antes.</p>
-                <p class="important-info">Em caso de desistencia, cancelar pelo portal.</p>
-            </div>
+            <h2 class="module-title">Consultas Marcadas</h2>
+            <ul class="appointment-list">
+                <li *ngFor="let appointment of appointments" (click)="selectAppointment(appointment)">
+                    <p>Especialidade: {{ appointment.specialty }}</p>
+                    <p>Data: {{ appointment.date }}</p>
+                </li>
+            </ul>
         </div>
         <div class="buttons-container">
-            <button class="button">Atualizar</button>
-            <button class="button">Cancelar</button>
+            <button class="button" (click)="createAppointment()">Marcar</button>
+            <button class="button" (click)="cancelAppointment()">Cancelar</button>
+            <button class="button" (click)="updateAppointment()">Atualizar</button>
         </div>
     </div>
-    
-    <div class="calendar-container">
-        <div class="calendar"></div>
-        <img src="/assets/png/calendar-background.png" alt="Imagem" class="calendar-image">
+    <div class="appointments-container">
+        <div class="appointments-module-info">
+            <h2 class="module-title">Dados da Consulta</h2>
+            <div class="info-container">
+                <p class="info-extra">Médico: {{ selectedAppointment?.doctor }} </p>
+                <p class="info-extra">Especialidade: {{ selectedAppointment?.specialty }}</p>
+                <p class="info-extra">Data: {{ selectedAppointment?.date }}</p>
+                <p class="info-extra">Local: {{ selectedAppointment?.location }}</p>
+                <p class="info-extra">Informações Extras: {{ selectedAppointment?.extraInfo }}</p>
+        </div>
     </div>
 </div>

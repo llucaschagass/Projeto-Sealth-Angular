@@ -26,7 +26,7 @@
         <div class="download-module">
             <h2 class="module-title">Download PDF</h2>
             <div class="download-content" *ngIf="selectedMedicine">
-                <a href="#" (click)="downloadPDF(selectedMedicine)">
+                <a href="#" (click)="downloadPDF(selectedMedicine, $event)">
                     <img src="/assets/png/download-icon.png" alt="Download" class="download-icon">
                     <p class="select-text">Baixar {{ selectedMedicine }}</p>
                 </a>

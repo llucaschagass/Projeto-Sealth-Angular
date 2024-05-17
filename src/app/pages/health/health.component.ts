@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { HealthService } from '../../services/health.service';
+import { HealthDefaultsResponse } from '../../../types/health-response.type';
 
 @Component({
   selector: 'app-health',
@@ -28,18 +29,27 @@ export class HealthComponent implements OnInit {
   }
 
   getHealthDefaults(): void {
-    this.healthService.getHealthDefaults().subscribe(
-      (defaults: any) => {
-        this.userPeso = defaults.defaultWeight;
-        this.userAltura = defaults.defaultHeight;
-        this.userIdade = defaults.defaultAge;
-        this.userSexo = defaults.defaultSex;
-        this.updateCalculations();
-      },
-      (error: any) => {
-        console.error('Error fetching health defaults:', error);
-      }
-    );
+    const healthDefaultsString = localStorage.getItem('healthDefaults');
+
+    if (healthDefaultsString) {
+      const healthDefaults: HealthDefaultsResponse = JSON.parse(healthDefaultsString);
+      this.userPeso = healthDefaults.weight;
+      this.userAltura = healthDefaults.height;
+      this.userIdade = healthDefaults.age;
+      this.userSexo = healthDefaults.sex;
+      this.updateCalculations();
+    } else {
+      this.healthService.getHealthDefaults().subscribe({
+        next: (defaults: HealthDefaultsResponse) => {
+          this.userPeso = defaults.weight;
+          this.userAltura = defaults.height;
+          this.userIdade = defaults.age;
+          this.userSexo = defaults.sex;
+          this.updateCalculations();
+        },
+        error: (error: any) => console.log(error),
+      })
+    }
   }
 
   updateCalculations(): void {
