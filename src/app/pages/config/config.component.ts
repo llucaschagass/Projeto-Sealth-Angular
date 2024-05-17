@@ -55,31 +55,56 @@ export class ConfigComponent implements OnInit {
       },
       error: () => {
         Swal.fire({
-            title: 'Erro',
-            text: 'Não foi possível obter os dados do usuário.',
-            icon: 'error',
-            confirmButtonColor: '#046B46',
+          title: 'Erro',
+          text: 'Não foi possível obter os dados do usuário.',
+          icon: 'error',
+          confirmButtonColor: '#046B46',
         });
       }
     });
   }
 
   updateUser(): void {
+    const oldName = localStorage.getItem('user-name');
+    const oldEmail = localStorage.getItem('user-email');
+  
+    if ((oldName === this.user.newName) && (oldEmail === this.user.newEmail)) {
+      Swal.fire({
+        title: 'Atenção',
+        text: 'Os itens que você está tentando alterar são iguais aos atuais. Por favor, faça alterações válidas.',
+        icon: 'warning',
+        confirmButtonColor: '#046B46',
+      });
+      return;
+    }
+  
+    if ((oldName === this.user.newName) || (oldEmail === this.user.newEmail)) {
+      Swal.fire({
+        title: 'Atenção',
+        text: 'Um dos itens que você está tentando alterar é igual ao atual. Deseja continuar?',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#046B46',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Sim, continuar',
+        cancelButtonText: 'Cancelar'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          this.executeUserUpdate();
+        }
+      });
+      return;
+    }
+  
+    this.executeUserUpdate();
+  }
+  
+  executeUserUpdate(): void {
     if (!this.userId) {
       Swal.fire({
         title: 'Erro',
         text: 'Não foi possível obter o ID do usuário.',
         icon: 'error',
-        confirmButtonColor: '#046B46',
-      });
-      return;
-    }
-
-    if ((this.oldName === this.user.newName) || (this.oldEmail === this.user.newEmail)) {
-      Swal.fire({
-        title: 'Atenção',
-        text: 'Os itens que você está tentando alterar são iguais aos atuais. Por favor, faça alterações válidas.',
-        icon: 'warning',
         confirmButtonColor: '#046B46',
       });
       return;
@@ -90,9 +115,9 @@ export class ConfigComponent implements OnInit {
       email: this.user.newEmail,
       password: this.user.newPassword
     };
-
+  
     this.userService.updateUserData(updatedUserData).subscribe({
-      next: () => {
+      next: (response) => {
         Swal.fire({
           title: 'Sucesso',
           text: 'Dados do usuário atualizados com sucesso!',
@@ -109,11 +134,12 @@ export class ConfigComponent implements OnInit {
           });
         });
       },
-      error: () => {
+      error: (error) => {
+        console.error('Erro ao atualizar os dados do usuário:', error);
         Swal.fire({
           title: 'Erro',
           text: 'Não foi possível atualizar os dados do usuário.',
-          icon:  'error',
+          icon: 'error',
           confirmButtonColor: '#046B46'
         });
       }

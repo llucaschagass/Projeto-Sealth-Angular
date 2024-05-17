@@ -48,8 +48,6 @@ export class UserService {
       'Authorization': `Bearer ${token}`
     });
 
-    console.log('Atualizando dados do usuário:', updatedUserData);
-
     return this.http.put(`${this.apiUrl}/update/${userId}`, updatedUserData, { headers }).pipe(
       catchError(error => throwError(error))
     );
